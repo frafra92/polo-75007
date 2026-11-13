@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Polo 75007 — L'élégance parisienne</title>
+<meta name="description" content="Polo 75007 : polo blanc en maille piquée 100 % coton, tour Eiffel brodée côté cœur et 75007 brodé en relief dans le dos. L'élégance parisienne.">
+<meta property="og:title" content="Polo 75007 — L'élégance parisienne">
+<meta property="og:description" content="Polo blanc 100 % coton, broderie 3D bleu marine : tour Eiffel côté cœur, 75007 dans le dos.">
+<meta property="og:image" content="img/og.jpg">
+<meta property="og:type" content="product">
+<meta name="theme-color" content="#101c4a">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500;1,600&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --marine:#101c4a;
+  --marine-2:#1c2d6e;
+  --gris:#c8c6c7;      /* fond des photos */
+  --papier:#f4f3f1;
+  --encre:#1a1d2b;
+  --doux:#5d6072;
+  --trait:#dcdad7;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Jost",system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--encre);background:var(--papier);line-height:1.6;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+.serif{font-family:"Cormorant Garamond",Georgia,serif}
+.wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+
+/* En-tête */
+header{position:sticky;top:0;z-index:10;background:rgba(244,243,241,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--trait)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:58px}
+.marque{display:flex;align-items:center;gap:10px;color:var(--marine);text-decoration:none;font-weight:600;letter-spacing:.22em;font-size:15px}
+.marque svg{width:20px;height:26px}
+nav a{color:var(--doux);text-decoration:none;font-size:14px;margin-left:22px;letter-spacing:.04em}
+nav a:hover{color:var(--marine)}
+
+/* Héros */
+.hero{background:var(--gris)}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:24px;padding-top:0;padding-bottom:0}
+.hero-texte{padding:56px 0}
+.sur{font-size:12.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--marine-2);font-weight:500}
+h1{font-weight:600;color:var(--marine);font-size:clamp(64px,13vw,132px);line-height:.92;letter-spacing:-.01em;margin:14px 0 6px}
+.accroche{font-style:italic;font-weight:500;font-size:clamp(26px,4.4vw,40px);color:var(--marine);line-height:1.15}
+.accroche::after{content:"";display:block;width:150px;height:10px;margin-top:6px;border-bottom:2px solid var(--marine);border-radius:0 0 60% 40%/0 0 100% 100%;transform:rotate(-2deg)}
+.intro{margin-top:26px;max-width:30em;color:#33364a;font-size:17px}
+.btn{display:inline-block;margin-top:28px;background:var(--marine);color:#fff;text-decoration:none;padding:14px 26px;font-size:14px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;border-radius:2px;transition:background .2s}
+.btn:hover{background:var(--marine-2)}
+.hero-photo img{width:100%;height:auto}
+
+/* Sections */
+section{padding:72px 0}
+h2{font-family:"Cormorant Garamond",Georgia,serif;font-weight:500;font-size:clamp(32px,5vw,46px);color:var(--marine);line-height:1.1}
+.chapo{color:var(--doux);margin-top:10px;max-width:36em}
+
+/* Face / dos */
+.vues{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:34px}
+.vue{background:var(--gris);border-radius:4px;overflow:hidden;position:relative}
+.vue img{width:100%;height:auto;aspect-ratio:3/4;object-fit:cover}
+.vue figcaption{position:absolute;left:16px;bottom:14px;background:#fff;color:var(--marine);font-size:12px;letter-spacing:.2em;text-transform:uppercase;padding:6px 12px;font-weight:500}
+
+/* Détails */
+.details{background:#fff;border-top:1px solid var(--trait);border-bottom:1px solid var(--trait)}
+.grille{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:34px}
+.carte img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:4px;background:var(--gris)}
+.carte h3{font-size:17px;font-weight:600;color:var(--marine);margin-top:14px}
+.carte p{color:var(--doux);font-size:15.5px;margin-top:4px}
+
+/* Atouts */
+.atouts{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:34px;border:1px solid var(--trait);background:#fff;border-radius:4px}
+.atout{padding:28px 24px;display:flex;gap:16px;align-items:flex-start}
+.atout+.atout{border-left:1px solid var(--trait)}
+.atout svg{flex:none;width:34px;height:34px;stroke:var(--marine);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.atout strong{display:block;color:var(--marine);font-weight:600}
+.atout span{color:var(--doux);font-size:15px}
+
+/* Fiche */
+.fiche{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+dl{margin-top:26px;border-top:1px solid var(--trait)}
+dl div{display:flex;justify-content:space-between;gap:20px;padding:13px 0;border-bottom:1px solid var(--trait)}
+dt{color:var(--doux)}
+dd{font-weight:500;text-align:right}
+.encart{background:var(--marine);color:#fff;padding:38px 32px;border-radius:4px}
+.encart .serif{font-style:italic;font-size:34px;line-height:1.15}
+.encart p{margin-top:14px;color:#cfd5ee}
+.pastille{display:inline-block;margin-top:22px;border:1px solid rgba(255,255,255,.5);padding:8px 16px;font-size:12.5px;letter-spacing:.2em;text-transform:uppercase}
+
+footer{padding:34px 0 44px;text-align:center;color:var(--doux);font-size:14px;border-top:1px solid var(--trait)}
+footer .serif{font-style:italic;font-size:22px;color:var(--marine);display:block;margin-bottom:6px}
+
+@media (max-width:820px){
+  nav{display:none}
+  .hero .wrap{grid-template-columns:1fr;gap:0}
+  .hero-texte{padding:40px 0 8px}
+  .hero-photo{margin:0 -22px}
+  section{padding:52px 0}
+  .vues{gap:10px}
+  .vue figcaption{left:8px;bottom:8px;font-size:10.5px;padding:5px 9px}
+  .grille{grid-template-columns:1fr;gap:28px}
+  .atouts{grid-template-columns:1fr}
+  .atout+.atout{border-left:0;border-top:1px solid var(--trait)}
+  .fiche{grid-template-columns:1fr;gap:30px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="marque" href="#haut" aria-label="75007 — accueil">
+      <svg viewBox="0 0 20 26" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 1v3M10 4c-.4 8-3 15-7 21M10 4c.4 8 3 15 7 21M6.2 17h7.6M7.6 11h4.8M5 25c1.2-3 3-4.5 5-4.5s3.800 1.500 5 4.500"/></svg>
+      75007
+    </a>
+    <nav>
+      <a href="#vues">Face &amp; dos</a>
+      <a href="#details">Détails</a>
+      <a href="#fiche">Fiche</a>
+    </nav>
+  </div>
+</header>
+
+<main id="haut">
+  <div class="hero">
+    <div class="wrap">
+      <div class="hero-texte">
+        <p class="sur">Polo brodé · Paris 7<sup>e</sup></p>
+        <h1 class="serif">75007</h1>
+        <p class="accroche serif">l'élégance parisienne</p>
+        <p class="intro">Un polo blanc en maille piquée, une tour Eiffel esquissée au fil bleu marine côté cœur, et le code postal le plus célèbre de Paris brodé en relief dans le dos.</p>
+        <a class="btn" href="#vues">Découvrir le polo</a>
+      </div>
+      <div class="hero-photo">
+        <img src="img/face.jpg" width="664" height="900" alt="Polo blanc 75007 vu de face, tour Eiffel brodée bleu marine sur la poitrine">
+      </div>
+    </div>
+  </div>
+
+  <section id="vues">
+    <div class="wrap">
+      <h2>Discret devant, affirmé derrière</h2>
+      <p class="chapo">Devant, un croquis de la tour Eiffel souligné du 75007. Derrière, les cinq chiffres en grand, d'une épaule à l'autre.</p>
+      <div class="vues">
+        <figure class="vue">
+          <img src="img/face.jpg" width="664" height="900" loading="lazy" alt="Le polo 75007 de face">
+          <figcaption>Face</figcaption>
+        </figure>
+        <figure class="vue">
+          <img src="img/dos.jpg" width="558" height="900" loading="lazy" alt="Le polo 75007 de dos, grand 75007 brodé bleu marine">
+          <figcaption>Dos</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="details" class="details">
+    <div class="wrap">
+      <h2>Les détails</h2>
+      <p class="chapo">Tout est brodé, rien n'est imprimé.</p>
+      <div class="grille">
+        <div class="carte">
+          <img src="img/logo.jpg" width="292" height="342" loading="lazy" alt="Gros plan sur la tour Eiffel brodée et le 75007">
+          <h3>Logo cœur</h3>
+          <p>Croquis de la tour Eiffel en broderie 3D, signé 75007.</p>
+        </div>
+        <div class="carte">
+          <img src="img/broderie.jpg" width="292" height="188" loading="lazy" alt="Gros plan sur le 75007 brodé en relief dans le dos">
+          <h3>Dos</h3>
+          <p>75007 en broderie 3D bleu marine, au relief net.</p>
+        </div>
+        <div class="carte">
+          <img src="img/col.jpg" width="292" height="235" loading="lazy" alt="Gros plan sur le col et la maille piquée du polo">
+          <h3>Polo premium</h3>
+          <p>Maille piquée coton, col polo et patte trois boutons.</p>
+        </div>
+      </div>
+
+      <div class="atouts">
+        <div class="atout">
+          <svg viewBox="0 0 34 34" aria-hidden="true"><circle cx="17" cy="11" r="5.500"/><circle cx="10.500" cy="16.500" r="5"/><circle cx="23.500" cy="16.500" r="5"/><path d="M17 21v9M13 30c2-1 3-3 4-5 1 2 2 4 4 5"/></svg>
+          <div><strong>100 % coton premium</strong><span>Maille piquée, douce et respirante.</span></div>
+        </div>
+        <div class="atout">
+          <svg viewBox="0 0 34 34" aria-hidden="true"><path d="M10 6h14l6 8-13 15L4 14zM4 14h26M13 14l4 15 4-15M10 6l3 8 4-8 4 8 3-8"/></svg>
+          <div><strong>Broderie 3D</strong><span>Haute qualité, fil bleu marine.</span></div>
+        </div>
+        <div class="atout">
+          <svg viewBox="0 0 34 34" aria-hidden="true"><path d="M17 3v3M17 6c-.5 9-4 17-9 24M17 6c.5 9 4 17 9 24M12 20h10M14 13h6M10 30c1.500-3.500 4-5.500 7-5.500s5.500 2 7 5.500"/></svg>
+          <div><strong>Style parisien</strong><span>Élégant, sobre, facile à porter.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="fiche">
+    <div class="wrap fiche">
+      <div>
+        <h2>La fiche</h2>
+        <dl>
+          <div><dt>Modèle</dt><dd>Polo 75007</dd></div>
+          <div><dt>Couleur</dt><dd>Blanc, broderies bleu marine</dd></div>
+          <div><dt>Matière</dt><dd>100 % coton, maille piquée</dd></div>
+          <div><dt>Devant</dt><dd>Tour Eiffel + 75007, côté cœur</dd></div>
+          <div><dt>Dos</dt><dd>75007 en grand, broderie 3D</dd></div>
+          <div><dt>Coupe</dt><dd>Manches courtes, col polo, 3 boutons</dd></div>
+        </dl>
+      </div>
+      <div class="encart">
+        <p class="serif">75007… l'élégance parisienne</p>
+        <p>Le 7<sup>e</sup> arrondissement, celui de la tour Eiffel, porté simplement.</p>
+        <span class="pastille">Bientôt disponible</span>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="serif">75007… l'élégance parisienne</span>
+    Polo 75007 · Paris
+  </div>
+</footer>
+
+</body>
+</html>
