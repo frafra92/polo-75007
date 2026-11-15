@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PARIS – 20 CLANS · Réserve ton arrondissement</title>
+<meta name="description" content="20 arrondissements, 20 polos brodés, 20 clans. Réserve ta place dans ton arrondissement avant l'ouverture des précommandes.">
+<meta property="og:title" content="PARIS – 20 CLANS">
+<meta property="og:description" content="Choisis ton camp. Porte ton quartier. Réserve ta place dans ton arrondissement.">
+<meta name="theme-color" content="#101c4a">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@400;500;600&family=Oswald:wght@600&display=swap" rel="stylesheet">
+<style>
+:root{--marine:#101c4a;--marine-2:#1c2d6e;--papier:#f5efe2;--carte:#fffdf8;--encre:#1a1d2b;--doux:#5f6172;--trait:#ddd4c0;--or:#a8842c}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Jost",system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--encre);background:var(--papier);line-height:1.55;-webkit-font-smoothing:antialiased}
+.serif{font-family:"Cormorant Garamond",Georgia,serif}
+.wrap{max-width:1080px;margin:0 auto;padding:0 18px}
+button{font:inherit;cursor:pointer}
+
+/* Héros */
+.hero{background:var(--marine);color:#fff;text-align:center;padding:54px 0 46px}
+.sur{font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:#c9cfee}
+h1{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;font-size:clamp(40px,10vw,84px);line-height:1;margin:14px 0 4px;letter-spacing:.02em}
+h1 small{display:block;font-size:.42em;font-weight:500;letter-spacing:.14em;margin-top:10px}
+.devise{font-size:clamp(15px,3.6vw,19px);letter-spacing:.2em;text-transform:uppercase;margin-top:18px}
+.hero p.txt{max-width:34em;margin:20px auto 0;color:#d5daf2;font-size:16.5px}
+.btn{display:inline-block;margin-top:26px;background:#fff;color:var(--marine);text-decoration:none;border:0;padding:14px 26px;font-size:14px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;border-radius:2px}
+.bandeau{background:var(--or);color:#fff;text-align:center;font-size:13.5px;letter-spacing:.08em;padding:9px 14px}
+
+section{padding:52px 0}
+h2{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;font-size:clamp(30px,6vw,44px);color:var(--marine);line-height:1.1;text-align:center}
+.chapo{color:var(--doux);text-align:center;max-width:36em;margin:10px auto 0}
+
+/* Étapes */
+.etapes{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:30px}
+.etape{background:var(--carte);border:1px solid var(--trait);border-radius:4px;padding:20px}
+.etape b{font-family:"Oswald",sans-serif;color:var(--or);font-size:22px;display:block}
+.etape strong{color:var(--marine);display:block;margin:2px 0 4px}
+.etape span{color:var(--doux);font-size:15px}
+
+/* Grille des 20 */
+.grille{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:30px}
+.clan{background:var(--carte);border:1px solid var(--trait);border-radius:4px;padding:18px 14px 14px;text-align:center;display:flex;flex-direction:column}
+.clan .num{font-family:"Oswald",sans-serif;font-weight:600;color:var(--marine);font-size:clamp(30px,8vw,40px);line-height:1;letter-spacing:.02em}
+.clan .embleme{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--doux);margin:8px 0 12px;min-height:3.2em;display:flex;align-items:center;justify-content:center}
+.clan .cpt{font-size:13.5px;color:var(--marine-2);margin-bottom:10px;font-weight:500}
+.clan button{margin-top:auto;background:var(--marine);color:#fff;border:0;border-radius:2px;padding:11px 8px;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:500}
+.clan button:hover{background:var(--marine-2)}
+
+/* Classement */
+.classement{background:var(--carte);border-top:1px solid var(--trait);border-bottom:1px solid var(--trait)}
+ol.rang{list-style:none;max-width:680px;margin:28px auto 0}
+ol.rang li{display:grid;grid-template-columns:34px 74px 1fr auto;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--trait);font-size:15px}
+ol.rang .pos{font-family:"Oswald",sans-serif;color:var(--or);font-size:18px}
+ol.rang .cp{font-family:"Oswald",sans-serif;color:var(--marine);font-size:18px}
+ol.rang .barre{height:8px;background:#ebe4d2;border-radius:8px;overflow:hidden}
+ol.rang .barre i{display:block;height:100%;background:var(--marine);border-radius:8px;width:0;transition:width .8s ease}
+ol.rang .tot{font-weight:600;color:var(--marine);min-width:2.5em;text-align:right}
+.note{font-size:13.5px;color:var(--doux);text-align:center;margin-top:16px}
+
+/* Générations */
+.gens{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:30px}
+.gen{background:var(--carte);border:1px solid var(--trait);border-radius:4px;padding:22px;text-align:center}
+.gen h3{font-size:13px;letter-spacing:.24em;text-transform:uppercase;color:var(--marine)}
+.gen .prix{font-family:"Oswald",sans-serif;font-size:34px;color:var(--marine);margin:6px 0 2px}
+.gen p{color:var(--doux);font-size:15px}
+.gen.premier{border-color:var(--or);box-shadow:inset 0 3px 0 var(--or)}
+
+footer{padding:30px 0 44px;text-align:center;color:var(--doux);font-size:13.5px}
+footer .serif{font-style:italic;font-size:21px;color:var(--marine);display:block;margin-bottom:6px}
+
+/* Fenêtre de réservation */
+dialog{border:0;border-radius:6px;padding:0;width:min(440px,calc(100vw - 28px));margin:auto;background:var(--carte);color:var(--encre)}
+dialog::backdrop{background:rgba(16,28,74,.6)}
+.dlg{padding:26px 22px 22px;position:relative}
+.dlg .fermer{position:absolute;top:8px;right:10px;background:none;border:0;font-size:26px;color:var(--doux);line-height:1;padding:6px}
+.dlg .num{font-family:"Oswald",sans-serif;font-size:46px;color:var(--marine);line-height:1}
+.dlg .embleme{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--doux);margin:6px 0 16px}
+.dlg label{display:block;font-weight:500;color:var(--marine);margin-bottom:6px}
+.dlg input[type=email]{width:100%;font:inherit;font-size:16px;padding:13px 12px;border:1px solid #bfb69f;border-radius:3px;background:#fff}
+.dlg .ok{width:100%;margin-top:12px;background:var(--marine);color:#fff;border:0;border-radius:3px;padding:14px;font-size:14px;letter-spacing:.14em;text-transform:uppercase;font-weight:600}
+.dlg .ok[disabled]{opacity:.5;cursor:default}
+.dlg .mention{font-size:12.5px;color:var(--doux);margin-top:12px;line-height:1.45}
+.dlg .msg{margin-top:12px;font-weight:500;min-height:1.4em}
+.dlg .msg.err{color:#a3271f}.dlg .msg.bon{color:#1c6b3a}
+.piege{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+
+@media (max-width:820px){
+  .grille{grid-template-columns:repeat(2,1fr);gap:10px}
+  .etapes,.gens{grid-template-columns:1fr}
+  ol.rang li{grid-template-columns:28px 64px 1fr auto;font-size:14px}
+}
+</style>
+</head>
+<body>
+
+<div class="bandeau" id="bandeau">Prototype — les réservations ne sont pas encore ouvertes</div>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="sur">Polos brodés · Paris</p>
+    <h1>PARIS<small>20 ARRONDISSEMENTS. 20 CLANS.</small></h1>
+    <p class="devise">Choisis ton camp. Porte ton quartier.</p>
+    <p class="txt">Vingt polos blancs, un par arrondissement : son emblème brodé sur la poitrine, son code postal dans le dos. Réserve ta place dans ton clan avant l'ouverture des précommandes.</p>
+    <a class="btn" href="#clans">Choisir mon arrondissement</a>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <h2>Comment ça marche</h2>
+    <div class="etapes">
+      <div class="etape"><b>1</b><strong>Choisis ton arrondissement</strong><span>Un seul clan par personne.</span></div>
+      <div class="etape"><b>2</b><strong>Laisse ton e-mail</strong><span>Sans paiement, sans engagement.</span></div>
+      <div class="etape"><b>3</b><strong>Sois prévenu en premier</strong><span>Tu reçois un e-mail à l'ouverture des précommandes de ton clan.</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="clans" style="padding-top:0">
+  <div class="wrap">
+    <h2>Les 20 arrondissements</h2>
+    <p class="chapo">Chaque polo porte l'emblème de son quartier.</p>
+    <div class="grille" id="grille"></div>
+  </div>
+</section>
+
+<section class="classement" id="classement">
+  <div class="wrap">
+    <h2>Qui sera le maître de Paris&nbsp;?</h2>
+    <p class="chapo">Le classement des clans, par nombre de réservations.</p>
+    <ol class="rang" id="rang"></ol>
+    <p class="note" id="note-rang"></p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Trois générations</h2>
+    <p class="chapo">Dans chaque arrondissement, les premiers arrivés paient le prix le plus bas. Tarifs prévus à l'ouverture des précommandes.</p>
+    <div class="gens">
+      <div class="gen premier"><h3>Fondateurs</h3><div class="prix">90 €</div><p>Membres 001 à 100</p></div>
+      <div class="gen"><h3>Ambassadeurs</h3><div class="prix">150 €</div><p>Membres 101 à 1 000</p></div>
+      <div class="gen"><h3>Généraux</h3><div class="prix">200 €</div><p>Membres 1 001 à 5 000</p></div>
+    </div>
+    <p class="note">Une réservation par e-mail n'attribue pas de numéro : le numéro de membre est donné au paiement.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span class="serif">Les premiers écrivent l'histoire.</span>
+    PARIS – 20 CLANS
+  </div>
+</footer>
+
+<dialog id="dlg" aria-labelledby="dlg-num">
+  <form class="dlg" id="form" novalidate>
+    <button type="button" class="fermer" id="fermer" aria-label="Fermer">×</button>
+    <div class="num" id="dlg-num"></div>
+    <div class="embleme" id="dlg-embleme"></div>
+    <label for="email">Ton e-mail</label>
+    <input type="email" id="email" name="email" autocomplete="email" inputmode="email" placeholder="prenom@exemple.fr" required maxlength="254">
+    <div class="piege" aria-hidden="true"><label>Ne pas remplir <input type="text" id="site" tabindex="-1" autocomplete="off"></label></div>
+    <button class="ok" id="ok" type="submit">Réserver ma place</button>
+    <p class="msg" id="msg" role="status"></p>
+    <p class="mention" id="mention"></p>
+  </form>
+</dialog>
+
+<script>
+/* ───────── Configuration ─────────
+   Tant que ces deux valeurs sont vides, le site reste en mode prototype :
+   aucun e-mail n'est collecté et aucun compteur n'est affiché.            */
+const CONFIG = {
+  supabaseUrl: "",   // ex. https://xxxx.supabase.co
+  supabaseKey: "",   // clé publique (anon / publishable)
+  contact: ""        // e-mail de contact pour les demandes de suppression
+};
+const ACTIF = !!(CONFIG.supabaseUrl && CONFIG.supabaseKey && CONFIG.contact);
+const OBJECTIF = 100; // seuil Fondateurs
+
+const CLANS = [
+  [1,"Arc de triomphe du Carrousel"],[2,"Palais Brongniart"],[3,"Hôtel de Soubise"],[4,"Hôtel de Sully"],
+  [5,"Panthéon"],[6,"Église Saint-Germain-des-Prés"],[7,"Dôme des Invalides"],[8,"Arc de triomphe de l'Étoile"],
+  [9,"Opéra Garnier"],[10,"Canal Saint-Martin"],[11,"Cirque d'Hiver"],[12,"Gare de Lyon"],
+  [13,"Manufacture des Gobelins"],[14,"Lion de Belfort"],[15,"Pont Mirabeau"],[16,"Passy"],
+  [17,"Cité des Fleurs"],[18,"Basilique du Sacré-Cœur"],[19,"Rotonde de la Villette"],[20,"Église Saint-Germain-de-Charonne"]
+].map(([n,embleme]) => ({n, cp: "750" + String(n).padStart(2,"0"), embleme, total: 0}));
+
+const $ = id => document.getElementById(id);
+const dlg = $("dlg"); let courant = null;
+
+function dessinerGrille(){
+  $("grille").innerHTML = CLANS.map(c => `
+    <article class="clan" id="c${c.cp}">
+      <div class="num">${c.cp}</div>
+      <div class="embleme">${c.embleme}</div>
+      ${ACTIF ? `<div class="cpt">${c.total} réservation${c.total>1?"s":""}</div>` : ""}
+      <button type="button" data-n="${c.n}">Réserver</button>
+    </article>`).join("");
+}
+function dessinerRang(){
+  const tri = [...CLANS].sort((a,b) => b.total - a.total || a.n - b.n); // égalité : numéro d'arrondissement
+  $("rang").innerHTML = tri.map((c,i) => `
+    <li><span class="pos">${ACTIF ? i+1 : "–"}</span><span class="cp">${c.cp}</span>
+      <span class="barre" title="Objectif ${OBJECTIF}"><i data-w="${Math.min(100, c.total/OBJECTIF*100)}"></i></span>
+      <span class="tot">${ACTIF ? c.total : "–"}</span></li>`).join("");
+  $("note-rang").textContent = ACTIF
+    ? `Chiffres réels, mis à jour à chaque réservation. Barre pleine à ${OBJECTIF} réservations.`
+    : "Le classement s'affichera à l'ouverture des réservations.";
+  requestAnimationFrame(() => document.querySelectorAll(".barre i").forEach(i => i.style.width = i.dataset.w + "%"));
+}
+async function api(chemin, corps){
+  return fetch(CONFIG.supabaseUrl + "/rest/v1/" + chemin, {
+    method: "POST",
+    headers: {apikey: CONFIG.supabaseKey, Authorization: "Bearer " + CONFIG.supabaseKey,
+              "Content-Type": "application/json", Prefer: "return=minimal"},
+    body: JSON.stringify(corps || {})
+  });
+}
+async function chargerCompteurs(){
+  if(!ACTIF) return;
+  try{
+    const r = await api("rpc/compteurs");
+    if(!r.ok) throw 0;
+    const lignes = await r.json();
+    CLANS.forEach(c => c.total = 0);
+    lignes.forEach(l => { const c = CLANS[l.arrondissement-1]; if(c) c.total = Number(l.total) || 0; });
+  }catch(e){ /* on garde l'affichage précédent */ }
+  dessinerGrille(); dessinerRang();
+}
+function ouvrir(n){
+  courant = CLANS[n-1]; if(!courant) return;
+  $("dlg-num").textContent = courant.cp;
+  $("dlg-embleme").textContent = courant.embleme;
+  $("msg").textContent = ""; $("msg").className = "msg";
+  $("email").value = ""; $("email").disabled = !ACTIF; $("ok").disabled = !ACTIF;
+  $("ok").textContent = ACTIF ? "Réserver ma place" : "Ouverture prochaine";
+  $("mention").textContent = ACTIF
+    ? `Ton e-mail sert uniquement à te prévenir de l'ouverture des précommandes du ${courant.cp}. Il n'est ni publié ni transmis. Suppression sur simple demande : ${CONFIG.contact}`
+    : "Les réservations ne sont pas encore ouvertes. Aucun e-mail n'est collecté pour l'instant.";
+  dlg.showModal();
+}
+$("grille").addEventListener("click", e => { const b = e.target.closest("button[data-n]"); if(b) ouvrir(+b.dataset.n); });
+$("fermer").addEventListener("click", () => dlg.close());
+dlg.addEventListener("click", e => { if(e.target === dlg) dlg.close(); });
+
+$("form").addEventListener("submit", async e => {
+  e.preventDefault();
+  if(!ACTIF || !courant) return;
+  const msg = $("msg"), email = $("email").value.trim().toLowerCase();
+  if($("site").value) return;                                   // piège à robots
+  if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){ msg.className = "msg err"; msg.textContent = "Cet e-mail ne semble pas valide."; return; }
+  $("ok").disabled = true; msg.className = "msg"; msg.textContent = "Envoi…";
+  try{
+    const r = await api("reservations", {email, arrondissement: courant.n});
+    if(r.status === 409){ msg.className = "msg bon"; msg.textContent = "Cet e-mail a déjà une réservation. Un seul clan par personne."; }
+    else if(r.ok){ msg.className = "msg bon"; msg.textContent = `C'est réservé : bienvenue dans le clan ${courant.cp}.`; $("email").disabled = true; await chargerCompteurs(); return; }
+    else throw 0;
+  }catch(err){ msg.className = "msg err"; msg.textContent = "La réservation n'a pas pu être enregistrée. Réessaie dans un instant."; }
+  $("ok").disabled = false;
+});
+
+if(ACTIF) $("bandeau").remove();
+dessinerGrille(); dessinerRang(); chargerCompteurs();
+const h = location.hash.match(/^#750(\d\d)$/); if(h && +h[1] >= 1 && +h[1] <= 20) ouvrir(+h[1]);
+</script>
+</body>
+</html>
